@@ -1587,7 +1587,7 @@ var requirejs, require, define;
              */
             nameToUrl: function (moduleName, ext) {
                 var paths, pkgs, pkg, pkgPath, syms, i, parentModule, url,
-                    parentPath, isSpecial;
+                    parentPath;
 
                 //If a colon is in the URL, it indicates a protocol is used and it is just
                 //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
@@ -1598,7 +1598,6 @@ var requirejs, require, define;
                     //Add extension if it is included. This is a bit wonky, only non-.js things pass
                     //an extension, this method probably needs to be reworked.
                     url = moduleName + (ext || '');
-                    isSpecial = true;
                 } else {
                     //A module that needs to be converted to a path.
                     paths = config.paths;
@@ -1638,7 +1637,7 @@ var requirejs, require, define;
                     url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : config.baseUrl) + url;
                 }
 
-                return !isSpecial && config.urlArgs ? url +
+                return config.urlArgs && ! /\/\//.test(url) ? url +
                                         ((url.indexOf('?') === -1 ? '?' : '&') +
                                          config.urlArgs) : url;
             },
