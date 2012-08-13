@@ -80,6 +80,7 @@ doh.registerUrl("mapConfigStarAdapterBuilt", "../mapConfig/built/mapConfigStarAd
 doh.registerUrl("mapConfigMulti", "../mapConfig/mapConfigMulti.html");
 doh.registerUrl("mapConfigDelayed", "../mapConfig/mapConfigDelayed.html");
 doh.registerUrl("mapConfigRelative", "../mapConfig/mapConfigRelative.html");
+doh.registerUrl("mapConfigSpecificity", "../mapConfig/mapConfigSpecificity.html");
 
 doh.registerUrl("layers", "../layers/layers.html", 10000);
 
@@ -96,6 +97,7 @@ doh.registerUrl("nestedRelativeRequire", "../nestedRelativeRequire/nestedRelativ
 doh.registerUrl("nestedRequireConfig", "../nestedRequireConfig/nestedRequireConfig.html");
 
 doh.registerUrl("pluginsSync", "../plugins/sync.html");
+doh.registerUrl("pluginsOnError", "../plugins/onerror/onerror.html");
 doh.registerUrl("doublePluginCall", "../plugins/double.html");
 doh.registerUrl("pluginsNameOnly", "../plugins/nameOnly.html");
 doh.registerUrl("pluginsFromText", "../plugins/fromText/fromText.html");
@@ -108,6 +110,8 @@ doh.registerUrl("pluginMapDynamic", "../plugins/pluginMap/dynamic/pluginMapDynam
 
 doh.registerUrl("requirePluginLoad", "../requirePluginLoad/requirePluginLoad.html");
 
+doh.registerUrl("issue379", "../issue379/issue379.html");
+
 doh.registerUrl("text", "../text/text.html");
 doh.registerUrl("textOnly", "../text/textOnly.html");
 doh.registerUrl("textBuilt", "../text/textBuilt.html");
@@ -115,12 +119,15 @@ doh.registerUrl("textOnError", "../text/textOnError.html");
 doh.registerUrl("textOnXhr", "../text/textOnXhr.html");
 doh.registerUrl("jsonp", "../jsonp/jsonp.html");
 doh.registerUrl("domReady", "../domReady/domReady.html");
+doh.registerUrl("domReadyExtraConfig", "../domReady/domReadyExtraConfig.html");
 
 doh.registerUrl("relative", "../relative/relative.html");
 doh.registerUrl("relativeBaseUrl", "../relative/relativeBaseUrl.html");
 doh.registerUrl("relativeOutsideBaseUrl", "../relative/outsideBaseUrl/a/outsideBaseUrl.html");
 
 doh.registerUrl("remoteUrls", "../remoteUrls/remoteUrls.html");
+
+doh.registerUrl("queryPath", "../queryPath.html");
 
 doh.registerUrl("trailingComma", "../trailingComma/trailingComma.html");
 
@@ -134,6 +141,7 @@ if (typeof Worker !== "undefined") {
 }
 
 doh.registerUrl("undef", "../undef/undef.html", 8000);
+doh.registerUrl("undefNoRequire", "../undef/undefNoRequire.html", 3000);
 doh.registerUrl("undefEnforceShim", "../undef/undefEnforceShim.html", 8000);
 doh.registerUrl("undefLocal", "../undef/undefLocal.html", 8000);
 doh.registerUrl("errorContinue", "../error/errorContinue.html", 8000);
