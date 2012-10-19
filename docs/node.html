@@ -38,8 +38,6 @@
 
 <p><strong>Best practice</strong>: Use npm to install Node-only packages/modules into the projects <strong>node_modules</strong> directory, but do not configure RequireJS to look inside the node_modules directory. Also avoid using relative module IDs to reference modules that are Node-only modules. So, <strong>do not</strong> do something like <strong>require("./node_modules/foo/foo")</strong>.</p>
 
-<p>Even though RequireJS is an asynchronous loader in the browser, the RequireJS Node adapter loads modules synchronously in the Node environment to match the default loading behavior in Node.</p>
-
 <p>Finally, RequireJS in Node can only load modules that are on the local disk -- fetching modules across http, for instance, is not supported at this time.</p>
 
 </div>
@@ -100,6 +98,11 @@ function   (foo,   bar) {
 <p>Be sure to read the <a href="#2">notes in section 2</a> about configuring RequireJS so that it can load node-only modules installed via npm.</p>
 
 <p>To see a more complete example that loads a module via RequireJS but uses Node-native modules for other things, see the <a href="https://github.com/jrburke/r.js/tree/master/tests/node/embedded">embedded test</a> in the r.js repo.</p>
+
+<p><strong>Note:</strong> <code>requirejs([], function() {})</code> will call the function callback asynchronously in RequireJS 2.1+ (for earlier versions it was synchronously called). However, when running in Node, module loading will be loaded using sync IO calls, and loader plugins should resolve calls to their load method synchronously. This allows sync uses of the requirejs module in node to work via requirejs('stringValue') calls:
+
+<pre><code>//Retrieves the module value for 'a' synchronously
+var a = requirejs('a')</code></pre>
 
 <h3 id="nodeModules">Building node modules with AMD or RequireJS</h3>
 
