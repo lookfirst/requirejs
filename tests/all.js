@@ -23,6 +23,7 @@ if (hasToString) {
     doh.registerUrl("cjsSpace", "../cjsSpace/cjsSpace.html");
     doh.registerUrl("cjsDotRequire", "../cjsSpace/cjsDotRequire.html");
     doh.registerUrl("packages", "../packages/packages.html");
+    doh.registerUrl("packagesConfig", "../packages/config/config.html");
     doh.registerUrl("specialDeps", "../specialDeps/specialDeps.html");
 }
 
@@ -44,6 +45,7 @@ doh.registerUrl("circularTranspiler", "../circular/transpiler/transpiler.html");
 
 doh.registerUrl("nestedRequire", "../nestedRequire/nestedRequire.html");
 
+doh.registerUrl("depEmpty", "../depEmpty.html");
 doh.registerUrl("depoverlap", "../depoverlap.html");
 doh.registerUrl("urlfetch", "../urlfetch/urlfetch.html");
 doh.registerUrl("uniques", "../uniques/uniques.html");
@@ -144,6 +146,12 @@ doh.registerUrl("relativeOutsideBaseUrl", "../relative/outsideBaseUrl/a/outsideB
 
 doh.registerUrl("remoteUrls", "../remoteUrls/remoteUrls.html");
 
+// IE does not support data URIs for scripts. This is a crude exclusion test
+// but is good enough that the test is run in enough browsers to prove it works.
+if (!document.attachEvent) {
+    doh.registerUrl("datauri", "../datauri/datauri.html");
+}
+
 doh.registerUrl("queryPath", "../queryPath.html");
 
 doh.registerUrl("trailingComma", "../trailingComma/trailingComma.html");
@@ -163,6 +171,9 @@ doh.registerUrl("undefEnforceShim", "../undef/undefEnforceShim.html", 8000);
 doh.registerUrl("undefLocal", "../undef/undefLocal.html", 8000);
 doh.registerUrl("errorContinue", "../error/errorContinue.html", 8000);
 doh.registerUrl("errorContinueLocal", "../error/errorContinueLocal.html", 8000);
+doh.registerUrl("errorDoubleRequire", "../error/doubleRequire/doubleRequire.html", 8000);
+doh.registerUrl("errorRequireErrback", "../error/requireErrback.html", 2000);
+doh.registerUrl("errorGlobalOnError", "../error/globalOnError.html", 2000);
 doh.registerUrl("pluginErrorContinue", "../error/pluginErrorContinue.html", 8000);
 doh.registerUrl("pluginErrorContinueLocal", "../error/pluginErrorContinueLocal.html", 8000);
 doh.registerUrl("defineErrorLocal", "../error/defineErrorLocal.html");
